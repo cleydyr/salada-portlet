@@ -78,3 +78,7 @@
 	color: inherit;
 	text-decoration: inherit;
 }
+
+.data-hora div {
+	display: inline-block;
+}
