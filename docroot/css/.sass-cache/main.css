@@ -1,0 +1,70 @@
+/*
+.coluna1_5 {
+	width: 96px;
+	height: 96px;
+	float: left;
+	margin: 4px;
+}
+
+#my-div:hover {
+	-moz-box-shadow: 0 17px 50px 0 rgba(0,0,0,.19);
+	-webkit-box-shadow: 0 17px 50px 0 rgba(0,0,0,.19);
+	box-shadow: 0 17px 50px 0 rgba(0,0,0,.19);
+	position: relative;
+	z-index: 100;
+}
+
+.titulo1_5 {
+	font-family: ClarendonLTStdBold;
+	font-size: 150%;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.aui [class^="icon-"]:before, .aui [class*=" icon-"]:before {
+    text-decoration: inherit;
+    display: block;
+}
+
+*/
+.thumbnail:hover {
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.19); }
+
+#sorteios .bg {
+  display: block;
+  background: url(../images/random-8x.png) no-repeat 50% 50%;
+  height: 64px; }
+
+.sorteios-icon {
+  background-img: url(../images/random-8x.png); }
+
+#inscricoes .bg {
+  display: block;
+  background: url(../images/book-8x.png) no-repeat 50% 50%;
+  height: 64px; }
+
+#pagamentos .bg {
+  display: block;
+  background: url(../images/dollar-8x.png) no-repeat 50% 50%;
+  height: 64px; }
+
+#armarios .bg {
+  display: block;
+  background: url(../images/grid-four-up-8x.png) no-repeat 50% 50%;
+  height: 64px; }
+
+#mensagens .bg {
+  display: block;
+  background: url(../images/envelope-closed-8x.png) no-repeat 50% 50%;
+  height: 64px; }
+
+.thumbnail a {
+  display: block; }
+
+.thumbnail h3 {
+  text-align: center; }
+
+.thumbnail a:hover {
+  color: inherit;
+  text-decoration: inherit; }
+

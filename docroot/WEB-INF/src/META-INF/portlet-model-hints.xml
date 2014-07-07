@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="br.ufpe.cin.da.salada.model.Sorteio">
+		<field name="sorteioId" type="long" />
+		<field name="dataInicio" type="Date" />
+		<field name="dataFim" type="Date" />
+	</model>
+</model-hints>

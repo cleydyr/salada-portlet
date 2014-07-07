@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="br.ufpe.cin.da.salada.model.Armario" />
+	<import class="br.ufpe.cin.da.salada.model.Inscricao" />
+	<import class="br.ufpe.cin.da.salada.model.Mensagem" />
+	<import class="br.ufpe.cin.da.salada.model.Pagamento" />
+	<import class="br.ufpe.cin.da.salada.model.Sorteio" />
+	<class name="br.ufpe.cin.da.salada.model.impl.SorteioImpl" table="salada_Sorteio">
+		<cache usage="read-write" />
+		<id name="sorteioId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="dataInicio" type="org.hibernate.type.TimestampType" />
+		<property name="dataFim" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>
