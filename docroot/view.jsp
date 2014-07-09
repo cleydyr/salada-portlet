@@ -25,7 +25,7 @@
 	<ul class="thumbnails">
 		<li class="span4">
 			<div class="thumbnail" id="sorteios">
-				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp</span>
+				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp;</span>
 					<h3>Sorteios</h3>
 					<p>Gerencie os sorteios de armários.</p>
 				</a>
@@ -33,7 +33,7 @@
 		</li>
 		<li class="span4">
 			<div class="thumbnail" id="pagamentos">
-				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp</span>
+				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp;</span>
 					<h3>Pagamentos</h3>
 					<p>Gerencie os pagamentos realizados.</p>
 				</a>
@@ -41,7 +41,7 @@
 		</li>
 		<li class="span4">
 			<div class="thumbnail" id="inscricoes">
-				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp</span>
+				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp;</span>
 					<h3>Inscrições</h3>
 					<p>Gerencie as inscrições feitas pelos alunos</p>
 				</a>
@@ -52,7 +52,7 @@
 	<ul class="thumbnails">
 		<li class="span4">
 			<div class="thumbnail" id="armarios">
-				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp</span>
+				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp;</span>
 					<h3>Armários</h3>
 					<p>Gerencie os armários disponíveis.</p>
 				</a>
@@ -60,8 +60,8 @@
 		</li>
 		<li class="span4">
 			<div class="thumbnail" id="mensagens">
-				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp</span>
-					<h3>Pagamentos</h3>
+				<a href="<%=sorteioURL%>"> <span class="bg">&nbsp;</span>
+					<h3>Mensagens</h3>
 					<p>Gerencie as mensagens enviadas por e-mail.</p>
 				</a>
 			</div>

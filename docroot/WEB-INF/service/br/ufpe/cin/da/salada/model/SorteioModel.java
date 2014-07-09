@@ -14,6 +14,7 @@
 
 package br.ufpe.cin.da.salada.model;
 
+import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
@@ -73,32 +74,47 @@ public interface SorteioModel extends BaseModel<Sorteio> {
 	public void setSorteioId(long sorteioId);
 
 	/**
-	 * Returns the data inicio of this sorteio.
+	 * Returns the data abertura of this sorteio.
 	 *
-	 * @return the data inicio of this sorteio
+	 * @return the data abertura of this sorteio
 	 */
-	public Date getDataInicio();
+	public Date getDataAbertura();
 
 	/**
-	 * Sets the data inicio of this sorteio.
+	 * Sets the data abertura of this sorteio.
 	 *
-	 * @param dataInicio the data inicio of this sorteio
+	 * @param dataAbertura the data abertura of this sorteio
 	 */
-	public void setDataInicio(Date dataInicio);
+	public void setDataAbertura(Date dataAbertura);
 
 	/**
-	 * Returns the data fim of this sorteio.
+	 * Returns the data fechamento of this sorteio.
 	 *
-	 * @return the data fim of this sorteio
+	 * @return the data fechamento of this sorteio
 	 */
-	public Date getDataFim();
+	public Date getDataFechamento();
 
 	/**
-	 * Sets the data fim of this sorteio.
+	 * Sets the data fechamento of this sorteio.
 	 *
-	 * @param dataFim the data fim of this sorteio
+	 * @param dataFechamento the data fechamento of this sorteio
 	 */
-	public void setDataFim(Date dataFim);
+	public void setDataFechamento(Date dataFechamento);
+
+	/**
+	 * Returns the nome of this sorteio.
+	 *
+	 * @return the nome of this sorteio
+	 */
+	@AutoEscape
+	public String getNome();
+
+	/**
+	 * Sets the nome of this sorteio.
+	 *
+	 * @param nome the nome of this sorteio
+	 */
+	public void setNome(String nome);
 
 	@Override
 	public boolean isNew();

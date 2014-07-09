@@ -113,6 +113,13 @@ public class SorteioLocalServiceClpInvoker {
 		_methodName35 = "setBeanIdentifier";
 
 		_methodParameterTypes35 = new String[] { "java.lang.String" };
+
+		_methodName40 = "cadastrarSorteio";
+
+		_methodParameterTypes40 = new String[] {
+				"java.lang.String", "java.util.Date", "java.util.Date",
+				"com.liferay.portal.service.ServiceContext"
+			};
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -216,6 +223,15 @@ public class SorteioLocalServiceClpInvoker {
 			return null;
 		}
 
+		if (_methodName40.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
+			SorteioLocalServiceUtil.cadastrarSorteio((java.lang.String)arguments[0],
+				(java.util.Date)arguments[1], (java.util.Date)arguments[2],
+				(com.liferay.portal.service.ServiceContext)arguments[3]);
+
+			return null;
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -255,4 +271,6 @@ public class SorteioLocalServiceClpInvoker {
 	private String[] _methodParameterTypes34;
 	private String _methodName35;
 	private String[] _methodParameterTypes35;
+	private String _methodName40;
+	private String[] _methodParameterTypes40;
 }

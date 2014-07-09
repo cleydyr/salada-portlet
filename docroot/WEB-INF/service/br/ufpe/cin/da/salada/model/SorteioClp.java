@@ -74,8 +74,9 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("sorteioId", getSorteioId());
-		attributes.put("dataInicio", getDataInicio());
-		attributes.put("dataFim", getDataFim());
+		attributes.put("dataAbertura", getDataAbertura());
+		attributes.put("dataFechamento", getDataFechamento());
+		attributes.put("nome", getNome());
 
 		return attributes;
 	}
@@ -88,16 +89,22 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 			setSorteioId(sorteioId);
 		}
 
-		Date dataInicio = (Date)attributes.get("dataInicio");
+		Date dataAbertura = (Date)attributes.get("dataAbertura");
 
-		if (dataInicio != null) {
-			setDataInicio(dataInicio);
+		if (dataAbertura != null) {
+			setDataAbertura(dataAbertura);
 		}
 
-		Date dataFim = (Date)attributes.get("dataFim");
+		Date dataFechamento = (Date)attributes.get("dataFechamento");
 
-		if (dataFim != null) {
-			setDataFim(dataFim);
+		if (dataFechamento != null) {
+			setDataFechamento(dataFechamento);
+		}
+
+		String nome = (String)attributes.get("nome");
+
+		if (nome != null) {
+			setNome(nome);
 		}
 	}
 
@@ -125,21 +132,21 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 	}
 
 	@Override
-	public Date getDataInicio() {
-		return _dataInicio;
+	public Date getDataAbertura() {
+		return _dataAbertura;
 	}
 
 	@Override
-	public void setDataInicio(Date dataInicio) {
-		_dataInicio = dataInicio;
+	public void setDataAbertura(Date dataAbertura) {
+		_dataAbertura = dataAbertura;
 
 		if (_sorteioRemoteModel != null) {
 			try {
 				Class<?> clazz = _sorteioRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setDataInicio", Date.class);
+				Method method = clazz.getMethod("setDataAbertura", Date.class);
 
-				method.invoke(_sorteioRemoteModel, dataInicio);
+				method.invoke(_sorteioRemoteModel, dataAbertura);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -148,21 +155,44 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 	}
 
 	@Override
-	public Date getDataFim() {
-		return _dataFim;
+	public Date getDataFechamento() {
+		return _dataFechamento;
 	}
 
 	@Override
-	public void setDataFim(Date dataFim) {
-		_dataFim = dataFim;
+	public void setDataFechamento(Date dataFechamento) {
+		_dataFechamento = dataFechamento;
 
 		if (_sorteioRemoteModel != null) {
 			try {
 				Class<?> clazz = _sorteioRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setDataFim", Date.class);
+				Method method = clazz.getMethod("setDataFechamento", Date.class);
 
-				method.invoke(_sorteioRemoteModel, dataFim);
+				method.invoke(_sorteioRemoteModel, dataFechamento);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getNome() {
+		return _nome;
+	}
+
+	@Override
+	public void setNome(String nome) {
+		_nome = nome;
+
+		if (_sorteioRemoteModel != null) {
+			try {
+				Class<?> clazz = _sorteioRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setNome", String.class);
+
+				method.invoke(_sorteioRemoteModel, nome);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -240,8 +270,9 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 		SorteioClp clone = new SorteioClp();
 
 		clone.setSorteioId(getSorteioId());
-		clone.setDataInicio(getDataInicio());
-		clone.setDataFim(getDataFim());
+		clone.setDataAbertura(getDataAbertura());
+		clone.setDataFechamento(getDataFechamento());
+		clone.setNome(getNome());
 
 		return clone;
 	}
@@ -290,14 +321,16 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(7);
+		StringBundler sb = new StringBundler(9);
 
 		sb.append("{sorteioId=");
 		sb.append(getSorteioId());
-		sb.append(", dataInicio=");
-		sb.append(getDataInicio());
-		sb.append(", dataFim=");
-		sb.append(getDataFim());
+		sb.append(", dataAbertura=");
+		sb.append(getDataAbertura());
+		sb.append(", dataFechamento=");
+		sb.append(getDataFechamento());
+		sb.append(", nome=");
+		sb.append(getNome());
 		sb.append("}");
 
 		return sb.toString();
@@ -305,7 +338,7 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(16);
 
 		sb.append("<model><model-name>");
 		sb.append("br.ufpe.cin.da.salada.model.Sorteio");
@@ -316,12 +349,16 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 		sb.append(getSorteioId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>dataInicio</column-name><column-value><![CDATA[");
-		sb.append(getDataInicio());
+			"<column><column-name>dataAbertura</column-name><column-value><![CDATA[");
+		sb.append(getDataAbertura());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>dataFim</column-name><column-value><![CDATA[");
-		sb.append(getDataFim());
+			"<column><column-name>dataFechamento</column-name><column-value><![CDATA[");
+		sb.append(getDataFechamento());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>nome</column-name><column-value><![CDATA[");
+		sb.append(getNome());
 		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
@@ -330,7 +367,8 @@ public class SorteioClp extends BaseModelImpl<Sorteio> implements Sorteio {
 	}
 
 	private long _sorteioId;
-	private Date _dataInicio;
-	private Date _dataFim;
+	private Date _dataAbertura;
+	private Date _dataFechamento;
+	private String _nome;
 	private BaseModel<?> _sorteioRemoteModel;
 }

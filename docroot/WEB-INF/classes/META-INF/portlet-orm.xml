@@ -10,12 +10,13 @@
 	<mapped-superclass class="br.ufpe.cin.da.salada.model.impl.SorteioModelImpl">
 		<attributes>
 			<id name="sorteioId" />
-			<basic name="dataInicio">
+			<basic name="dataAbertura">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="dataFim">
+			<basic name="dataFechamento">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
+			<basic name="nome" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />

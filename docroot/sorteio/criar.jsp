@@ -15,7 +15,7 @@
 		</div>
 		<div class="data-hora">
 			<aui:input label="Data de Fechamento" name="dataFechamento" id="dataFechamento" />
-			<aui:input label="Hora de Fechamento" name="horaAbertura" id="horaFechamento"/>
+			<aui:input label="Hora de Fechamento" name="horaFechamento" id="horaFechamento"/>
 		</div>
 	</aui:fieldset>
 	<aui:button-row>

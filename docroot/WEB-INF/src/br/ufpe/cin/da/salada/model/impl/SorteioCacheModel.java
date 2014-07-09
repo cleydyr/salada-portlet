@@ -17,6 +17,7 @@ package br.ufpe.cin.da.salada.model.impl;
 import br.ufpe.cin.da.salada.model.Sorteio;
 
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 
 import java.io.Externalizable;
@@ -36,14 +37,16 @@ import java.util.Date;
 public class SorteioCacheModel implements CacheModel<Sorteio>, Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(7);
+		StringBundler sb = new StringBundler(9);
 
 		sb.append("{sorteioId=");
 		sb.append(sorteioId);
-		sb.append(", dataInicio=");
-		sb.append(dataInicio);
-		sb.append(", dataFim=");
-		sb.append(dataFim);
+		sb.append(", dataAbertura=");
+		sb.append(dataAbertura);
+		sb.append(", dataFechamento=");
+		sb.append(dataFechamento);
+		sb.append(", nome=");
+		sb.append(nome);
 		sb.append("}");
 
 		return sb.toString();
@@ -55,18 +58,25 @@ public class SorteioCacheModel implements CacheModel<Sorteio>, Externalizable {
 
 		sorteioImpl.setSorteioId(sorteioId);
 
-		if (dataInicio == Long.MIN_VALUE) {
-			sorteioImpl.setDataInicio(null);
+		if (dataAbertura == Long.MIN_VALUE) {
+			sorteioImpl.setDataAbertura(null);
 		}
 		else {
-			sorteioImpl.setDataInicio(new Date(dataInicio));
+			sorteioImpl.setDataAbertura(new Date(dataAbertura));
 		}
 
-		if (dataFim == Long.MIN_VALUE) {
-			sorteioImpl.setDataFim(null);
+		if (dataFechamento == Long.MIN_VALUE) {
+			sorteioImpl.setDataFechamento(null);
 		}
 		else {
-			sorteioImpl.setDataFim(new Date(dataFim));
+			sorteioImpl.setDataFechamento(new Date(dataFechamento));
+		}
+
+		if (nome == null) {
+			sorteioImpl.setNome(StringPool.BLANK);
+		}
+		else {
+			sorteioImpl.setNome(nome);
 		}
 
 		sorteioImpl.resetOriginalValues();
@@ -77,19 +87,28 @@ public class SorteioCacheModel implements CacheModel<Sorteio>, Externalizable {
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		sorteioId = objectInput.readLong();
-		dataInicio = objectInput.readLong();
-		dataFim = objectInput.readLong();
+		dataAbertura = objectInput.readLong();
+		dataFechamento = objectInput.readLong();
+		nome = objectInput.readUTF();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		objectOutput.writeLong(sorteioId);
-		objectOutput.writeLong(dataInicio);
-		objectOutput.writeLong(dataFim);
+		objectOutput.writeLong(dataAbertura);
+		objectOutput.writeLong(dataFechamento);
+
+		if (nome == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(nome);
+		}
 	}
 
 	public long sorteioId;
-	public long dataInicio;
-	public long dataFim;
+	public long dataAbertura;
+	public long dataFechamento;
+	public String nome;
 }

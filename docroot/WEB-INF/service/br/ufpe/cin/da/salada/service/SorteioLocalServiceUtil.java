@@ -274,6 +274,13 @@ public class SorteioLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static void cadastrarSorteio(java.lang.String nome,
+		java.util.Date dataAbertura, java.util.Date dataFechamento,
+		com.liferay.portal.service.ServiceContext ctx)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getService().cadastrarSorteio(nome, dataAbertura, dataFechamento, ctx);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

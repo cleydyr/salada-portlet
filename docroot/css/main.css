@@ -82,3 +82,11 @@
 .data-hora div {
 	display: inline-block;
 }
+
+.salada .btn-primary {
+	background-color: #f36c60;
+}
+
+.salada .btn-primary:hover, .salada .btn-primary:active {
+	background-color: #e84e40;
+}

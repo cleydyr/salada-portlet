@@ -280,6 +280,15 @@ public class SorteioLocalServiceWrapper implements SorteioLocalService,
 		return _sorteioLocalService.invokeMethod(name, parameterTypes, arguments);
 	}
 
+	@Override
+	public void cadastrarSorteio(java.lang.String nome,
+		java.util.Date dataAbertura, java.util.Date dataFechamento,
+		com.liferay.portal.service.ServiceContext ctx)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		_sorteioLocalService.cadastrarSorteio(nome, dataAbertura,
+			dataFechamento, ctx);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

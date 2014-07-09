@@ -14,7 +14,13 @@
 
 package br.ufpe.cin.da.salada.service.impl;
 
+import java.util.Date;
+
+import br.ufpe.cin.da.salada.model.Sorteio;
 import br.ufpe.cin.da.salada.service.base.SorteioLocalServiceBaseImpl;
+
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.service.ServiceContext;
 
 /**
  * The implementation of the sorteio local service.
@@ -36,4 +42,15 @@ public class SorteioLocalServiceImpl extends SorteioLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link br.ufpe.cin.da.salada.service.SorteioLocalServiceUtil} to access the sorteio local service.
 	 */
+	
+	public void cadastrarSorteio(String nome, Date dataAbertura, Date dataFechamento, ServiceContext ctx) throws SystemException {
+		long sorteioId = counterLocalService.increment(Sorteio.class.toString());
+		
+		Sorteio sorteio = sorteioPersistence.create(sorteioId);
+		sorteio.setNome(nome);
+		sorteio.setDataAbertura(dataAbertura);
+		sorteio.setDataFechamento(dataFechamento);
+		
+		sorteioPersistence.update(sorteio);
+	}
 }

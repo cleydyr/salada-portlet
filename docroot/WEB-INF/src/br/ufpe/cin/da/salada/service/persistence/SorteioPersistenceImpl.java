@@ -317,8 +317,9 @@ public class SorteioPersistenceImpl extends BasePersistenceImpl<Sorteio>
 		sorteioImpl.setPrimaryKey(sorteio.getPrimaryKey());
 
 		sorteioImpl.setSorteioId(sorteio.getSorteioId());
-		sorteioImpl.setDataInicio(sorteio.getDataInicio());
-		sorteioImpl.setDataFim(sorteio.getDataFim());
+		sorteioImpl.setDataAbertura(sorteio.getDataAbertura());
+		sorteioImpl.setDataFechamento(sorteio.getDataFechamento());
+		sorteioImpl.setNome(sorteio.getNome());
 
 		return sorteioImpl;
 	}

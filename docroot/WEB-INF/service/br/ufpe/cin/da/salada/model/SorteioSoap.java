@@ -31,8 +31,9 @@ public class SorteioSoap implements Serializable {
 		SorteioSoap soapModel = new SorteioSoap();
 
 		soapModel.setSorteioId(model.getSorteioId());
-		soapModel.setDataInicio(model.getDataInicio());
-		soapModel.setDataFim(model.getDataFim());
+		soapModel.setDataAbertura(model.getDataAbertura());
+		soapModel.setDataFechamento(model.getDataFechamento());
+		soapModel.setNome(model.getNome());
 
 		return soapModel;
 	}
@@ -93,23 +94,32 @@ public class SorteioSoap implements Serializable {
 		_sorteioId = sorteioId;
 	}
 
-	public Date getDataInicio() {
-		return _dataInicio;
+	public Date getDataAbertura() {
+		return _dataAbertura;
 	}
 
-	public void setDataInicio(Date dataInicio) {
-		_dataInicio = dataInicio;
+	public void setDataAbertura(Date dataAbertura) {
+		_dataAbertura = dataAbertura;
 	}
 
-	public Date getDataFim() {
-		return _dataFim;
+	public Date getDataFechamento() {
+		return _dataFechamento;
 	}
 
-	public void setDataFim(Date dataFim) {
-		_dataFim = dataFim;
+	public void setDataFechamento(Date dataFechamento) {
+		_dataFechamento = dataFechamento;
+	}
+
+	public String getNome() {
+		return _nome;
+	}
+
+	public void setNome(String nome) {
+		_nome = nome;
 	}
 
 	private long _sorteioId;
-	private Date _dataInicio;
-	private Date _dataFim;
+	private Date _dataAbertura;
+	private Date _dataFechamento;
+	private String _nome;
 }

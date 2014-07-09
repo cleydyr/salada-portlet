@@ -50,8 +50,9 @@ public class SorteioWrapper implements Sorteio, ModelWrapper<Sorteio> {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("sorteioId", getSorteioId());
-		attributes.put("dataInicio", getDataInicio());
-		attributes.put("dataFim", getDataFim());
+		attributes.put("dataAbertura", getDataAbertura());
+		attributes.put("dataFechamento", getDataFechamento());
+		attributes.put("nome", getNome());
 
 		return attributes;
 	}
@@ -64,16 +65,22 @@ public class SorteioWrapper implements Sorteio, ModelWrapper<Sorteio> {
 			setSorteioId(sorteioId);
 		}
 
-		Date dataInicio = (Date)attributes.get("dataInicio");
+		Date dataAbertura = (Date)attributes.get("dataAbertura");
 
-		if (dataInicio != null) {
-			setDataInicio(dataInicio);
+		if (dataAbertura != null) {
+			setDataAbertura(dataAbertura);
 		}
 
-		Date dataFim = (Date)attributes.get("dataFim");
+		Date dataFechamento = (Date)attributes.get("dataFechamento");
 
-		if (dataFim != null) {
-			setDataFim(dataFim);
+		if (dataFechamento != null) {
+			setDataFechamento(dataFechamento);
+		}
+
+		String nome = (String)attributes.get("nome");
+
+		if (nome != null) {
+			setNome(nome);
 		}
 	}
 
@@ -118,43 +125,63 @@ public class SorteioWrapper implements Sorteio, ModelWrapper<Sorteio> {
 	}
 
 	/**
-	* Returns the data inicio of this sorteio.
+	* Returns the data abertura of this sorteio.
 	*
-	* @return the data inicio of this sorteio
+	* @return the data abertura of this sorteio
 	*/
 	@Override
-	public java.util.Date getDataInicio() {
-		return _sorteio.getDataInicio();
+	public java.util.Date getDataAbertura() {
+		return _sorteio.getDataAbertura();
 	}
 
 	/**
-	* Sets the data inicio of this sorteio.
+	* Sets the data abertura of this sorteio.
 	*
-	* @param dataInicio the data inicio of this sorteio
+	* @param dataAbertura the data abertura of this sorteio
 	*/
 	@Override
-	public void setDataInicio(java.util.Date dataInicio) {
-		_sorteio.setDataInicio(dataInicio);
+	public void setDataAbertura(java.util.Date dataAbertura) {
+		_sorteio.setDataAbertura(dataAbertura);
 	}
 
 	/**
-	* Returns the data fim of this sorteio.
+	* Returns the data fechamento of this sorteio.
 	*
-	* @return the data fim of this sorteio
+	* @return the data fechamento of this sorteio
 	*/
 	@Override
-	public java.util.Date getDataFim() {
-		return _sorteio.getDataFim();
+	public java.util.Date getDataFechamento() {
+		return _sorteio.getDataFechamento();
 	}
 
 	/**
-	* Sets the data fim of this sorteio.
+	* Sets the data fechamento of this sorteio.
 	*
-	* @param dataFim the data fim of this sorteio
+	* @param dataFechamento the data fechamento of this sorteio
 	*/
 	@Override
-	public void setDataFim(java.util.Date dataFim) {
-		_sorteio.setDataFim(dataFim);
+	public void setDataFechamento(java.util.Date dataFechamento) {
+		_sorteio.setDataFechamento(dataFechamento);
+	}
+
+	/**
+	* Returns the nome of this sorteio.
+	*
+	* @return the nome of this sorteio
+	*/
+	@Override
+	public java.lang.String getNome() {
+		return _sorteio.getNome();
+	}
+
+	/**
+	* Sets the nome of this sorteio.
+	*
+	* @param nome the nome of this sorteio
+	*/
+	@Override
+	public void setNome(java.lang.String nome) {
+		_sorteio.setNome(nome);
 	}
 
 	@Override
@@ -221,7 +248,7 @@ public class SorteioWrapper implements Sorteio, ModelWrapper<Sorteio> {
 	}
 
 	@Override
-	public int compareTo(Sorteio sorteio) {
+	public int compareTo(br.ufpe.cin.da.salada.model.Sorteio sorteio) {
 		return _sorteio.compareTo(sorteio);
 	}
 
@@ -231,17 +258,17 @@ public class SorteioWrapper implements Sorteio, ModelWrapper<Sorteio> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Sorteio> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<br.ufpe.cin.da.salada.model.Sorteio> toCacheModel() {
 		return _sorteio.toCacheModel();
 	}
 
 	@Override
-	public Sorteio toEscapedModel() {
+	public br.ufpe.cin.da.salada.model.Sorteio toEscapedModel() {
 		return new SorteioWrapper(_sorteio.toEscapedModel());
 	}
 
 	@Override
-	public Sorteio toUnescapedModel() {
+	public br.ufpe.cin.da.salada.model.Sorteio toUnescapedModel() {
 		return new SorteioWrapper(_sorteio.toUnescapedModel());
 	}
 

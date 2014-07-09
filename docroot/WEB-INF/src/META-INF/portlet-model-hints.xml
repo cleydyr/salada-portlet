@@ -3,7 +3,8 @@
 <model-hints>
 	<model name="br.ufpe.cin.da.salada.model.Sorteio">
 		<field name="sorteioId" type="long" />
-		<field name="dataInicio" type="Date" />
-		<field name="dataFim" type="Date" />
+		<field name="dataAbertura" type="Date" />
+		<field name="dataFechamento" type="Date" />
+		<field name="nome" type="String" />
 	</model>
 </model-hints>

@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.service.ServiceContext;
@@ -59,10 +60,11 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 	public static final String TABLE_NAME = "salada_Sorteio";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "sorteioId", Types.BIGINT },
-			{ "dataInicio", Types.TIMESTAMP },
-			{ "dataFim", Types.TIMESTAMP }
+			{ "dataAbertura", Types.TIMESTAMP },
+			{ "dataFechamento", Types.TIMESTAMP },
+			{ "nome", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table salada_Sorteio (sorteioId LONG not null primary key,dataInicio DATE null,dataFim DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table salada_Sorteio (sorteioId LONG not null primary key,dataAbertura DATE null,dataFechamento DATE null,nome VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table salada_Sorteio";
 	public static final String ORDER_BY_JPQL = " ORDER BY sorteio.sorteioId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY salada_Sorteio.sorteioId ASC";
@@ -117,8 +119,9 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("sorteioId", getSorteioId());
-		attributes.put("dataInicio", getDataInicio());
-		attributes.put("dataFim", getDataFim());
+		attributes.put("dataAbertura", getDataAbertura());
+		attributes.put("dataFechamento", getDataFechamento());
+		attributes.put("nome", getNome());
 
 		return attributes;
 	}
@@ -131,16 +134,22 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 			setSorteioId(sorteioId);
 		}
 
-		Date dataInicio = (Date)attributes.get("dataInicio");
+		Date dataAbertura = (Date)attributes.get("dataAbertura");
 
-		if (dataInicio != null) {
-			setDataInicio(dataInicio);
+		if (dataAbertura != null) {
+			setDataAbertura(dataAbertura);
 		}
 
-		Date dataFim = (Date)attributes.get("dataFim");
+		Date dataFechamento = (Date)attributes.get("dataFechamento");
 
-		if (dataFim != null) {
-			setDataFim(dataFim);
+		if (dataFechamento != null) {
+			setDataFechamento(dataFechamento);
+		}
+
+		String nome = (String)attributes.get("nome");
+
+		if (nome != null) {
+			setNome(nome);
 		}
 	}
 
@@ -155,23 +164,38 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 	}
 
 	@Override
-	public Date getDataInicio() {
-		return _dataInicio;
+	public Date getDataAbertura() {
+		return _dataAbertura;
 	}
 
 	@Override
-	public void setDataInicio(Date dataInicio) {
-		_dataInicio = dataInicio;
+	public void setDataAbertura(Date dataAbertura) {
+		_dataAbertura = dataAbertura;
 	}
 
 	@Override
-	public Date getDataFim() {
-		return _dataFim;
+	public Date getDataFechamento() {
+		return _dataFechamento;
 	}
 
 	@Override
-	public void setDataFim(Date dataFim) {
-		_dataFim = dataFim;
+	public void setDataFechamento(Date dataFechamento) {
+		_dataFechamento = dataFechamento;
+	}
+
+	@Override
+	public String getNome() {
+		if (_nome == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _nome;
+		}
+	}
+
+	@Override
+	public void setNome(String nome) {
+		_nome = nome;
 	}
 
 	@Override
@@ -202,8 +226,9 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 		SorteioImpl sorteioImpl = new SorteioImpl();
 
 		sorteioImpl.setSorteioId(getSorteioId());
-		sorteioImpl.setDataInicio(getDataInicio());
-		sorteioImpl.setDataFim(getDataFim());
+		sorteioImpl.setDataAbertura(getDataAbertura());
+		sorteioImpl.setDataFechamento(getDataFechamento());
+		sorteioImpl.setNome(getNome());
 
 		sorteioImpl.resetOriginalValues();
 
@@ -262,22 +287,30 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 
 		sorteioCacheModel.sorteioId = getSorteioId();
 
-		Date dataInicio = getDataInicio();
+		Date dataAbertura = getDataAbertura();
 
-		if (dataInicio != null) {
-			sorteioCacheModel.dataInicio = dataInicio.getTime();
+		if (dataAbertura != null) {
+			sorteioCacheModel.dataAbertura = dataAbertura.getTime();
 		}
 		else {
-			sorteioCacheModel.dataInicio = Long.MIN_VALUE;
+			sorteioCacheModel.dataAbertura = Long.MIN_VALUE;
 		}
 
-		Date dataFim = getDataFim();
+		Date dataFechamento = getDataFechamento();
 
-		if (dataFim != null) {
-			sorteioCacheModel.dataFim = dataFim.getTime();
+		if (dataFechamento != null) {
+			sorteioCacheModel.dataFechamento = dataFechamento.getTime();
 		}
 		else {
-			sorteioCacheModel.dataFim = Long.MIN_VALUE;
+			sorteioCacheModel.dataFechamento = Long.MIN_VALUE;
+		}
+
+		sorteioCacheModel.nome = getNome();
+
+		String nome = sorteioCacheModel.nome;
+
+		if ((nome != null) && (nome.length() == 0)) {
+			sorteioCacheModel.nome = null;
 		}
 
 		return sorteioCacheModel;
@@ -285,14 +318,16 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(7);
+		StringBundler sb = new StringBundler(9);
 
 		sb.append("{sorteioId=");
 		sb.append(getSorteioId());
-		sb.append(", dataInicio=");
-		sb.append(getDataInicio());
-		sb.append(", dataFim=");
-		sb.append(getDataFim());
+		sb.append(", dataAbertura=");
+		sb.append(getDataAbertura());
+		sb.append(", dataFechamento=");
+		sb.append(getDataFechamento());
+		sb.append(", nome=");
+		sb.append(getNome());
 		sb.append("}");
 
 		return sb.toString();
@@ -300,7 +335,7 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(16);
 
 		sb.append("<model><model-name>");
 		sb.append("br.ufpe.cin.da.salada.model.Sorteio");
@@ -311,12 +346,16 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 		sb.append(getSorteioId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>dataInicio</column-name><column-value><![CDATA[");
-		sb.append(getDataInicio());
+			"<column><column-name>dataAbertura</column-name><column-value><![CDATA[");
+		sb.append(getDataAbertura());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>dataFim</column-name><column-value><![CDATA[");
-		sb.append(getDataFim());
+			"<column><column-name>dataFechamento</column-name><column-value><![CDATA[");
+		sb.append(getDataFechamento());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>nome</column-name><column-value><![CDATA[");
+		sb.append(getNome());
 		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
@@ -329,7 +368,8 @@ public class SorteioModelImpl extends BaseModelImpl<Sorteio>
 			Sorteio.class
 		};
 	private long _sorteioId;
-	private Date _dataInicio;
-	private Date _dataFim;
+	private Date _dataAbertura;
+	private Date _dataFechamento;
+	private String _nome;
 	private Sorteio _escapedModel;
 }

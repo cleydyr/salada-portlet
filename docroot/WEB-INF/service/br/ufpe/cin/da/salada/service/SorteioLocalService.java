@@ -244,4 +244,9 @@ public interface SorteioLocalService extends BaseLocalService,
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
+
+	public void cadastrarSorteio(java.lang.String nome,
+		java.util.Date dataAbertura, java.util.Date dataFechamento,
+		com.liferay.portal.service.ServiceContext ctx)
+		throws com.liferay.portal.kernel.exception.SystemException;
 }
