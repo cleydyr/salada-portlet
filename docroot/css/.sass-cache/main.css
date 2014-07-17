@@ -27,53 +27,53 @@
 }
 
 */
-.thumbnail:hover {
+.salada-portlet .thumbnail:hover {
   box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.19); }
 
-#sorteios .bg {
+.salada-portlet #sorteios .bg {
   display: block;
   background: url(../images/random-8x.png) no-repeat 50% 50%;
   height: 64px; }
 
-.sorteios-icon {
+.salada-portlet .sorteios-icon {
   background-img: url(../images/random-8x.png); }
 
-#inscricoes .bg {
+.salada-portlet #inscricoes .bg {
   display: block;
   background: url(../images/book-8x.png) no-repeat 50% 50%;
   height: 64px; }
 
-#pagamentos .bg {
+.salada-portlet #pagamentos .bg {
   display: block;
   background: url(../images/dollar-8x.png) no-repeat 50% 50%;
   height: 64px; }
 
-#armarios .bg {
+.salada-portlet #armarios .bg {
   display: block;
   background: url(../images/grid-four-up-8x.png) no-repeat 50% 50%;
   height: 64px; }
 
-#mensagens .bg {
+.salada-portlet #mensagens .bg {
   display: block;
   background: url(../images/envelope-closed-8x.png) no-repeat 50% 50%;
   height: 64px; }
 
-.thumbnail a {
+.salada-portlet .thumbnail a {
   display: block; }
 
-.thumbnail h3 {
+.salada-portlet .thumbnail h3 {
   text-align: center; }
 
-.thumbnail a:hover {
+.salada-portlet .thumbnail a:hover {
   color: inherit;
   text-decoration: inherit; }
 
-.data-hora div {
+.salada-portlet .data-hora div {
   display: inline-block; }
 
-.salada .btn-primary {
+.salada-portlet .btn-primary {
   background-color: #f36c60; }
 
-.salada .btn-primary:hover, .salada .btn-primary:active {
+.salada-portlet .btn-primary:hover, .salada-portlet .btn-primary:active {
   background-color: #e84e40; }
 

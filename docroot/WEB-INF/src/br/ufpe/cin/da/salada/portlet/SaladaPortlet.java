@@ -43,6 +43,22 @@ public class SaladaPortlet extends MVCPortlet {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deletarSorteio(
+			ActionRequest actionRequest, ActionResponse actionResponse) throws ParseException {
+		ServiceContext ctx;
+		try {
+			ctx = ServiceContextFactory.getInstance(actionRequest);
+
+			long sorteioId = ParamUtil.getLong(actionRequest, "sorteioId");
+			
+			System.out.println("sorteio deletado: " + sorteioId);
+			
+			
+		} catch (PortalException | SystemException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private static DateFormat _df = new SimpleDateFormat("dd/MM/yy hh:mm a z");
 }
