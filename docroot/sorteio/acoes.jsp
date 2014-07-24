@@ -1,7 +1,3 @@
-<%@page import="com.liferay.portal.kernel.util.WebKeys"%>
-<%@page import="br.ufpe.cin.da.salada.model.Sorteio"%>
-<%@page import="com.liferay.portal.kernel.dao.search.ResultRow"%>
-
 <%@ include file="/init.jsp"%>
 
 <%
@@ -12,12 +8,15 @@
 %>
 
 <portlet:actionURL name="deletarSorteio" var="deletarSorteioURL">
-	<portlet:param name="jspPage" value="/sorteio/listar.jsp" />
+	<portlet:param name="sorteioId" value="<%=sorteioId%>" />
+</portlet:actionURL>
+
+<portlet:actionURL name="renderAtualizarSorteio" var="renderAtualizarSorteioURL">
 	<portlet:param name="sorteioId" value="<%=sorteioId%>" />
 </portlet:actionURL>
 
 <liferay-ui:icon-menu>
-	<liferay-ui:icon image="edit" label="Editar" url="#" />
+	<liferay-ui:icon image="edit" label="Editar" url="<%= renderAtualizarSorteioURL %>" />
 	<liferay-ui:icon-delete label="Deletar" url="<%= deletarSorteioURL %>" confirmation="Tem certeza de que deseja deletar este sorteio?" />
 </liferay-ui:icon-menu>
 

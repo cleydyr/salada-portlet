@@ -1,12 +1,14 @@
 <%@ include file="/init.jsp" %>
 
-<portlet:actionURL name="criarSorteio" var="criarSorteioActionURL" />
+<portlet:actionURL name="atualizarSorteio" var="atualizarSorteioActionURL">
+	<portlet:param name="sorteioId" value="<%= renderRequest.getAttribute("sorteioId")%>"/>
+</portlet:actionURL>
 
 <div>
-	<h2>Criar sorteio</h2>
+	<h2>Atualizar sorteio</h2>
 </div>
 
-<aui:form action="<%= criarSorteioActionURL %>" name="criarSorteioFm">
+<aui:form action="<%= atualizarSorteioActionURL %>" name="atualizarSorteioFm">
 	<aui:fieldset>
 		<aui:input label="Nome" name="nome" id="nome"/>
 		<div class="data-hora">

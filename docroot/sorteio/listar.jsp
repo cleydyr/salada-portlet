@@ -12,7 +12,6 @@
 	cssClass="btn-large btn-primary icon-plus-sign icon-white"
 	href="<%=criarSorteioURL%>" />
 
-
 <liferay-ui:search-container
 	emptyResultsMessage="Não há sorteios cadastrados no momento.">
 	<liferay-ui:search-container-results
